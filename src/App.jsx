@@ -36,7 +36,13 @@ class App extends Component {
       document.getElementById('alert').hidden = false :
       (document.getElementById('alert').hidden = true,
       this.setState({
-         todoList: this.state.todoList.concat(this.state.todo)
+         todoList: this.state.todoList.concat(this.state.todo),
+         todo: {
+            task: "",
+            priority: 0,
+            editEnabled: false,
+            completed: false
+         },
       }));
    }
 
@@ -152,7 +158,7 @@ class ViewTask extends Component {
                   <ul className="list-group list-group-flush">
                      <li className={`${this.props.todoList[this.props.index].priority==1 ? "list-group-item-success" : this.props.todoList[this.props.index].priority==2 ? "list-group-item-warning" : "list-group-item-danger"}`}>
                         <input type="checkbox" name="completed" onClick={() => this.props.complete(this.props.index)}/>
-                        <span className="">{this.props.todoList[this.props.index].task}</span>
+                        <span className={this.props.todoList[this.props.index].completed == true ? "strike-through" : ""}>{this.props.todoList[this.props.index].task}</span>
                         <div className="float-end">
                            <a className="edit-todo mx-2" onClick={() => this.props.edit(this.props.index)}><span className="material-symbols-outlined" aria-label="edit-todo">edit_note</span></a>
                            <a className="delete-todo mx-2" onClick={() => this.props.delete(this.props.index)}><span className="material-symbols-outlined" aria-label="delete-todo">delete_forever</span></a>
