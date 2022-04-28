@@ -142,9 +142,6 @@ class AddTask extends Component {
 }
 
 class ViewTask extends Component {
-   constructor(props) {
-      super(props);
-      };
 
    render() {
       return (
