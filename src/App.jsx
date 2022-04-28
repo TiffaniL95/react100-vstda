@@ -33,10 +33,11 @@ class App extends Component {
 
    addTask(){
       this.state.todo.priority == 0 ?
-      alert("Please select a priority") :
+      document.getElementById('alert').hidden = false :
+      (document.getElementById('alert').hidden = true,
       this.setState({
          todoList: this.state.todoList.concat(this.state.todo)
-      });
+      }));
    }
 
    update(e,i){
@@ -132,6 +133,7 @@ class AddTask extends Component {
                      <option value="2">Medium Priority</option>
                      <option value="3">High Priority</option>
                </select>
+               <div className="text-danger text-center fw-bold mt-3" id="alert" hidden>Choose a priority!</div>
             </div>
             <div className="card-footer">
                <button className="create-todo btn btn-success w-100" onClick={(e) => this.props.addTask(e)}>Add</button>
