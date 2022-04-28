@@ -157,7 +157,7 @@ class ViewTask extends Component {
                {this.props.todoList[this.props.index].editEnabled == false ?
                   <ul className="list-group list-group-flush">
                      <li className={`${this.props.todoList[this.props.index].priority==1 ? "list-group-item-success" : this.props.todoList[this.props.index].priority==2 ? "list-group-item-warning" : "list-group-item-danger"}`}>
-                        <input type="checkbox" name="completed" onClick={() => this.props.complete(this.props.index)}/>
+                        <input type="checkbox" name="completed" onClick={() => this.props.complete(this.props.index)} defaultChecked={this.props.todoList[this.props.index].completed}/>
                         <span className={this.props.todoList[this.props.index].completed == true ? "strike-through" : ""}>{this.props.todoList[this.props.index].task}</span>
                         <div className="float-end">
                            <a className="edit-todo mx-2" onClick={() => this.props.edit(this.props.index)}><span className="material-symbols-outlined" aria-label="edit-todo">edit_note</span></a>
